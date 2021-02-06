@@ -44,4 +44,131 @@ window.addEventListener("keydown",my_keydown);
 function my_keydown(e){
     keyPressed = e.keyCode;
     console.log(keyPressed);
+
+    if(e.shiftKey == true && keyPressed == "80"){
+        console.log("p and shift were pressed together");
+        block_width = block_width + 10;
+        block_height = block_height + 10;
+        document.getElementById("current_width_of_block").innerHTML = block_width;
+        document.getElementById("current_height_of_block").innerHTML = block_height;
+    }
+
+    if(e.shiftKey == true && keyPressed == "77"){
+        console.log("m and shift were pressed together");
+        block_width = block_width - 10;
+        block_height = block_height - 10;
+        document.getElementById("current_width_of_block").innerHTML = block_width;
+        document.getElementById("current_height_of_block").innerHTML = block_height;
+    }
+
+
+if(keyPressed == "38"){
+    console.log("The up arrow has been pressed");
+    up();
+}
+
+if(keyPressed == "40"){
+    console.log("The down arrow has been pressed");
+    down();
+}
+
+if(keyPressed == "37"){
+    console.log("The left arrow has been pressed");
+    left();
+}
+
+if(keyPressed == "39"){
+    console.log("The right arrow has been pressed");
+    right();
+}
+
+if(keyPressed == "89"){
+    new_image("yellow_wall.png");
+    console.log("Y has been pressed");
+}
+
+if(keyPressed == "87"){
+    new_image("wall.jpg");
+    console.log("W has been pressed");
+}
+
+if(keyPressed == "86"){
+    new_image("unique.png");
+    console.log("U has been pressed");
+}
+
+if(keyPressed == "84"){
+    new_image("trunk.jpg");
+    console.log("T has been pressed");
+}
+
+if(keyPressed == "71"){
+    new_image("ground.png");
+    console.log("G has been pressed");
+}
+
+if(keyPressed == "74"){
+    new_image("light_green.png");
+    console.log("L has been pressed");
+}
+
+if(keyPressed == "82"){
+    new_image("roof.jpg");
+    console.log("R has been pressed");
+}
+
+if(keyPressed == "67"){
+    new_image("cloud.jpg");
+    console.log("C has been pressed");
+}
+
+if(keyPressed == "68"){
+    new_image("dark_green.png");
+    console.log("D has been pressed");
+}
+
+}
+
+function up(){
+
+    if(player_y >= 0){
+        player_y = player_y - block_height;
+        console.log("Block_height = "+block_height);
+        console.log("When Up arrow is pressed, x is: "+player_x+" and y is: "+player_y);
+        canvas.remove(player_object);
+        update();
+    }
+}
+
+function down(){
+
+    if(player_y <= 460){
+        player_y = player_y + block_height;
+        console.log("Block height = "+block_height);
+        console.log("When Down arrow is pressed, x is: "+player_x+" and y is: "+player_y);
+        canvas.remove(player_object);
+        update();
+    }
+}
+
+function left(){
+
+    if(player_x >= 0){
+        player_x = player_x - block_width;
+        console.log("Block width = "+block_width);
+        console.log("When Left arrow is pressed, x is: "+player_x+" and y is: "+player_y);
+        canvas.remove(player_object);
+        update();
+    }
+}
+
+function right(){
+
+    if(player_x <= 850){
+        player_x = player_x + block_width;
+        console.log("Block width = "+block_width);
+        console.log("When Right arrow is pressed, x is: "+player_x+" and y is: "+player_y);
+        canvas.remove(player_object);
+        update();
+    }
 }
